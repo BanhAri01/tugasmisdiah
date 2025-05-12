@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body class="overflow-x-hidden">
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div id="heroContent" class="flex flex-col justify-between items-center z-10"
+            style="width: 1000px; height: 500px;">
+            <h1 id="text1" class="text-4xl font-bold text-black">DAD TEAM</h1>
+            <div id="heroBox" class="bg-black w-full h-full z-0 border-cover relative z-20"
+                style="background-image: url('https://picsum.photos/1000/600?computer');"></div>
+            <h1 id="text2" class="text-xs text-black relative z-10">BASED IN BALI</h1>
+        </div>
+    </section>
+
+
+    <section id="aboutme" class="h-screen w-full mt-[200px]">
+        <div class="ml-[100px] max-w-3xl">
+            <h1 class="text-6xl flex items-center space-x-2 text-bold">
+                <span id="about">ABOUT MY</span>
+                <span id="company" class="text-[#0D2546] font-bold">COMPANY</span>
+            </h1>
+
+            <p id="deskripsi" class="relative z-20">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                possimus non optio similique odit cum ea id iste. Reprehenderit animi alias, consequuntur dignissimos
+                quos velit ducimus sit numquam tempore repellendus vitae illo blanditiis consectetur eius consequatur
+                quia delectus! Ipsum earum consequuntur, nobis magnam recusandae distinctio assumenda mollitia rem
+                libero officiis.</p>
+
+            <div id="ourteam" class="z-10 relative">
+
+                <h2 id="ourteamh2" class="text-6xl mb-4">OUR TEAM</h2>
+                <p id="ourteamp" class="max-w-xl text-justify text-white">orem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Quae enim rem voluptatum, nemo, neque laborum asperiores, sint ipsam quas ullam
+                    deleniti quaerat voluptatem necessitatibus qui laudantium! Sit corporis voluptate cupiditate labore
+                    nulla eos alias numquam, ipsum a nobis inventore excepturi laboriosam quis tenetur debitis hic neque
+                    tempora necessitatibus accusamus itaque.</p>
+
+                <div class="relative">
+                    <div id="img1"
+                        class="relative h-[466px] w-[718px] rounded-lg overflow-hidden z-10 ml-[600px] bg-[#213448] -mt-[200px]">
+                        <h2 class="text-4xl my-[60px] ml-[100px] text-white">DYWA</h2>
+                        <p
+                            class="text-sm max-w-xs overflow-hidden text-ellipsis p-2 rounded-lg text-white -mt-[60px] text-justify">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae enim rem voluptatum, nemo,
+                            neque laborum asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sed
+                            reiciendis consectetur, doloremque exercitationem eius necessitatibus sequi.
+                        </p>
+                        <div class="absolute inset-0 h-[397px] w-[363px] bg-cover my-auto ml-[325px] rounded-lg"
+                            style="background-image: url('https://picsum.photos/1000/600?grayscale');">
+                        </div>
+                    </div>
+
+                    <div id="img2"
+                        class="relative h-[466px] w-[718px] rounded-lg overflow-hidden z-20 -mt-[466px] ml-[600px] bg-[#0f1a26]">
+                        <h2 class="text-4xl my-[60px] ml-[100px] text-white">Ari</h2>
+                        <p
+                            class="text-sm max-w-xs overflow-hidden text-ellipsis p-2 rounded-lg text-white -mt-[60px] text-justify">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla illum ullam a deserunt
+                            tempore repellat. Amet iure eos, non iusto consectetur illo quia. Neque sunt quas laborum
+                            minima natus nemo quo porro nisi dolore repellat?
+                        </p>
+                        <div class=" inset-0 h-[397px] w-[363px] bg-cover my-auto ml-[325px] rounded-lg mt-[-200px]"
+                            style="background-image: url('https://picsum.photos/1000/600?grayscale');">
+                        </div>
+                    </div>
+
+                    <div id="img3"
+                        class="relative h-[466px] w-[718px] rounded-lg overflow-hidden z-20 -mt-[466px] ml-[600px] bg-[#0f1a26]">
+                        <h2 class="text-4xl my-[60px] ml-[100px] text-white">denys</h2>
+                        <p
+                            class="text-sm max-w-xs overflow-hidden text-ellipsis p-2 rounded-lg text-white -mt-[60px] text-justify">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla illum ullam a deserunt
+                            tempore repellat. Amet iure eos, non iusto consectetur illo quia. Neque sunt quas laborum
+                            minima natus nemo quo porro nisi dolore repellat?
+                        </p>
+                        <div class=" inset-0 h-[397px] w-[363px] bg-cover my-auto ml-[325px] rounded-lg mt-[-200px]"
+                            style="background-image: url('https://picsum.photos/1000/600?grayscale');">
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <section class="h-screen w-full bg-purple-900 relative z-20"></section>
+    <script src="script.js"></script>
+</body>
+
+</html>

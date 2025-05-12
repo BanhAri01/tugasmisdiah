@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+  font-family: 'h1';
+  src: url('assets/font/Supersonic Rocketship.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+body {
+    margin: 0;
+
+  }
+h1{
+ font-family: h1;
+}
+h2{
+  font-family: h1;
+  color: #94B4C1;
+ }
+p{
+  font-family: "Poppins", sans-serif;
+}
+
+
+  #heroBox {
+    /* transform: scaleY(0.02) scaleX(0.6); */
+    transform-origin: center;
+  }
+#ourteam{
+  /* opacity:0; */
+}
+
+
+
