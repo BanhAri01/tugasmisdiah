@@ -1,5 +1,39 @@
 gsap.registerPlugin(ScrollTrigger);
 
+
+let currentScroll = 0;
+let isScrollingDown = true;
+let arrow = document.querySelectorAll(".arrow");
+
+let tween = gsap.to(".marquee_inner", {
+    xPercent: -100,
+    repeat: -1,
+    duration: 5,
+    ease: "linear"
+}).totalProgress(0.5);
+gsap.set(".marquee_inner",{xPercent: -50});
+window.addEventListener("scroll", function(){
+    if(window.pageYOffset > currentScroll){
+        isScrollingDown = true;
+    }else{
+        isScrollingDown =false;
+    }
+    gsap.to(tween,{
+        timeScale: isScrollingDown ?1:-1,
+
+    });
+    arrow.forEach((arrow)=>{
+        if(isScrollingDown){
+            arrow.classList.remove("active");
+        }else {
+            arrow.classList.add("active");
+        }
+    });
+
+    currentScroll = window.pageYOffset;
+});
+
+
 const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#hero",
@@ -27,13 +61,13 @@ const tl = gsap.timeline({
     }
   );
   tl.from("#text1",{
-    y: 190,
+    y: 140,
     ease: "power2.out",
     scale: 2,
     duration: 3
   },0)
   tl.from("#text2",{
-    y:-190,
+    y:-140,
     ease:"power2.out",
     scale:2,
     duration:3
@@ -55,9 +89,8 @@ const tl = gsap.timeline({
 const tl2 =gsap.timeline({
     scrollTrigger:{
         trigger:"#aboutme",
-        start:"top center",
+        start:"center center",
         end:"+=1000",
-        markers:false,
         pin:true,
         scrub:3
     }
@@ -103,7 +136,7 @@ tl2.from("#aboutme",{
 const tl3 = gsap.timeline({
     scrollTrigger:{
         trigger:"#aboutme",
-        start: "top+=300 center",
+        start: "top+=400 center",
         end:"+=200",
         pin:true,
         scrub:2,
@@ -127,12 +160,11 @@ tl3.from("#img1",{
 const tl4 = gsap.timeline({
     scrollTrigger:{
         trigger:"#aboutme",
-        start: "top+=350 center",
+        start: "top+=405 center",
         end:"+=1000",
         pin:true,
         scrub:2,
         markers:true,
-        pinSpacing: true
     }
 })
 
