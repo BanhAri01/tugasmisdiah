@@ -1,6 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
-
-
+gsap.registerPlugin(MotionPathPlugin);
 let currentScroll = 0;
 let isScrollingDown = true;
 let arrow = document.querySelectorAll(".arrow");
@@ -161,10 +160,10 @@ const tl4 = gsap.timeline({
     scrollTrigger:{
         trigger:"#aboutme",
         start: "top+=405 center",
-        end:"+=1000",
+        end:"+=3000",
         pin:true,
         scrub:2,
-        markers:true,
+        // markers:true,
     }
 })
 
@@ -174,5 +173,362 @@ tl4.from("#img2",{x:100, y:700,duration:1,rotation:45,opacity:0})
 
 
 
-
+const tl5 = gsap.timeline({
+        scrollTrigger:{
+        trigger:"#skill",
+        start: "top-=400 top",
+        end:"+=1000",
+        scrub:2,
+        markers:true,
+      }
+    }
+  );
   
+  
+
+  tl5
+    .fromTo("#reactimg", 
+      { opacity: 0 }, 
+      { opacity: 1, duration: 0.5 }
+    )
+    .fromTo("#laravelimg", 
+      { opacity: 0 }, 
+      { opacity: 1, duration: 0.5 }
+    )
+    .fromTo("#reactimg", 
+      { x: -1000, y: -500 },
+      { 
+        delay: 1,
+        rotation: 360,
+        duration: 3,
+        ease: "power1.inOut",
+        motionPath: {
+          path: [
+            { x: -700, y: -200 },
+            { x: -500, y: -200 },
+            { x: -600, y: -100 },
+            { x: -700, y: -200 },
+            { x: -400, y: -200 },
+            { x:   0, y:    0 },
+          ],
+          autoRotate: false
+        },
+        opacity: 0
+      }
+    )
+  
+ 
+    .fromTo("#flash", 
+      { 
+        scale: 0.8, 
+        opacity: 0, 
+        boxShadow: "0px 0px 0px rgba(255,255,255,0)" 
+      },
+      { 
+        scale: 1.2, 
+        opacity: 1, 
+        duration: 0.2, 
+        ease: "power1.out",
+        boxShadow: "0px 0px 80px rgba(255,255,255,1)"
+      }
+    )
+    .to("#flash", { 
+        scale: 1, 
+        opacity: 0, 
+        duration: 0.2, 
+        ease: "power1.in" 
+      }
+    )
+
+
+    .fromTo("#laravelimg", 
+        { x: -800, y: -300 },
+        { 
+          rotation: 360,
+          duration: 3,
+          ease: "power1.inOut",
+          motionPath: {
+            path: [
+              { x: -700, y: -200 },
+              { x: -500, y: -200 },
+              { x: -600, y: -100 },
+              { x: -700, y: -200 },
+              { x: -400, y: -200 },
+              { x:    0, y:    0 },
+            ],
+            autoRotate: false
+          },
+          opacity: 0
+        }
+      )
+    
+     
+      .fromTo("#flash",
+        { scale: 0.8, opacity: 0, boxShadow: "0px 0px   0px rgba(255,255,255,0)" },
+        { 
+          scale: 1.3,
+          opacity: 1,
+          duration: 0.1,
+          ease: "power1.out",
+          boxShadow: "0px 0px 100px rgba(255,255,255,1)"
+        }
+      )
+      .to("#flash",
+        { scale: 1, opacity: 0, duration: 0.2, ease: "power1.in" }
+      )
+    
+   
+      .to({}, { duration: 0.1 })
+    
+     
+      .fromTo("#flash",
+        { scale: 0.8, opacity: 0, boxShadow: "0px 0px   0px rgba(255,255,255,0)" },
+        { 
+          scale: 1.3,
+          opacity: 1,
+          duration: 0.1,
+          ease: "power1.out",
+          boxShadow: "0px 0px 100px rgba(255,255,255,1)"
+        }
+      )
+      .to("#flash",
+        { scale: 1, opacity: 0, duration: 0.2, ease: "power1.in" }
+      )
+      .fromTo("#phpimg", 
+        { opacity: 0 }, 
+        { opacity: 1, duration: 0.5 }
+      )
+
+      .fromTo("#phpimg", 
+        { x: -1000, y: 400 },
+        { 
+          rotation: 360,
+          duration: 3,
+          ease: "power1.inOut",
+          motionPath: {
+            path: [
+              { x: -700, y: 200 },
+              { x: -500, y: 200 },
+              { x: -600, y: 100 },
+              { x: -700, y: 200 },
+              { x: -400, y: 200 },
+              { x:    0, y:    0 },
+            ],
+            autoRotate: false
+          },
+          opacity: 0
+        }
+      )
+
+      .fromTo("#flash",
+        { scale: 0.8, opacity: 0, boxShadow: "0px 0px   0px rgba(255,255,255,0)" },
+        { 
+          scale: 1.3,
+          opacity: 1,
+          duration: 0.1,
+          ease: "power1.out",
+          boxShadow: "0px 0px 100px rgba(255,255,255,1)"
+        }
+      )
+      .to("#flash",
+        { scale: 1, opacity: 0, duration: 0.2, ease: "power1.in" }
+      )
+    
+   
+      .to({}, { duration: 0.1 })
+    
+     
+      .fromTo("#flash",
+        { scale: 0.8, opacity: 0, boxShadow: "0px 0px   0px rgba(255,255,255,0)" },
+        { 
+          scale: 1.3,
+          opacity: 1,
+          duration: 0.1,
+          ease: "power1.out",
+          boxShadow: "0px 0px 100px rgba(255,255,255,1)"
+        }
+      )
+      .to("#flash",
+        { scale: 1, opacity: 0, duration: 0.2, ease: "power1.in" }
+      )
+      .to({}, { duration: 0.1 })
+    
+     
+      .fromTo("#flash",
+        { scale: 0.8, opacity: 0, boxShadow: "0px 0px   0px rgba(255,255,255,0)" },
+        { 
+          scale: 1.3,
+          opacity: 1,
+          duration: 0.1,
+          ease: "power1.out",
+          boxShadow: "0px 0px 100px rgba(255,255,255,1)"
+        }
+      )
+      .to("#flash",
+        { scale: 1, opacity: 0, duration: 0.2, ease: "power1.in" }
+      )
+
+      const blinkArduino = gsap.timeline({
+        repeat: -1,      
+        repeatDelay: 0.1, 
+        paused: true      
+      });
+      
+      blinkArduino
+        .fromTo(
+          "#flash",
+          { scale: 0.8, opacity: 0, boxShadow: "0px 0px 0px rgba(255,255,255,0)" },
+          {
+            scale: 1.3,
+            opacity: 1,
+            duration: 0.1,
+            ease: "power1.out",
+            boxShadow: "0px 0px 100px rgba(255,255,255,1)"
+          }
+        )
+      
+    
+      tl5.add(() => blinkArduino.play(), "+=0")
+    
+      
+      
+         
+
+const tl6 = gsap.timeline({
+    scrollTrigger:{
+        trigger:"#skill",
+        start: "center center",
+        end:"+=3000",
+        pin:true,
+        scrub:2,
+        markers:true,
+    }
+})
+
+.fromTo("#arduinoimg", 
+  { opacity: 0 }, 
+  { opacity: 1, duration: 0.5 }
+)  
+.fromTo("#arduinoimg", 
+  { x: -800, y: -200 },
+  { 
+    rotation: 360,
+    duration: 3,
+    ease: "power1.inOut",
+    motionPath: {
+      path: [
+        { x: -700, y: -200 },
+        { x: -500, y: -200 },
+        { x: -600, y: -100 },
+        { x: -700, y: -200 },
+        { x: -400, y: -200 },
+        { x:    0, y:    0 },
+      ],
+      autoRotate: false
+    },
+    opacity: 0
+  }
+)
+
+
+  .fromTo("#canvaimg", 
+    { x: -1300, y: -200 },
+    { 
+      rotation: 360,
+      duration: 3,
+      ease: "power1.inOut",
+      motionPath: {
+        path: [
+          { x: -700, y: -200 },
+          { x: -500, y: -200 },
+          { x: -600, y: -100 },
+          { x: -700, y: -200 },
+          { x: -400, y: -200 },
+          { x:    0, y:    0 },
+        ],
+        autoRotate: false
+      },
+      opacity: 0
+    },"<"
+  )
+  .fromTo("#figmaimg", 
+    { x: -1400, y: -200 },
+    { 
+      rotation: 360,
+      duration: 3,
+      ease: "power1.inOut",
+      motionPath: {
+        path: [
+          { x: -700, y: -200 },
+          { x: -500, y: -200 },
+          { x: -600, y: -100 },
+          { x: -700, y: -200 },
+          { x: -400, y: -200 },
+          { x:    0, y:    0 },
+        ],
+        autoRotate: false
+      },
+      opacity: 0
+    },"<"
+  )
+  .fromTo("#wpimg", 
+    { x: -1600, y: -200 },
+    { 
+      rotation: 360,
+      duration: 3,
+      ease: "power1.inOut",
+      motionPath: {
+        path: [
+          { x: -700, y: -200 },
+          { x: -500, y: -200 },
+          { x: -600, y: -100 },
+          { x: -700, y: -200 },
+          { x: -400, y: -200 },
+          { x:    0, y:    0 },
+        ],
+        autoRotate: false
+      },
+      opacity: 0
+    },"<"
+ )
+ .to("#monitor", {
+  x: -500,
+  duration: 2,
+  ease: "power1.inOut"
+})
+.to("#ourskill", {
+  x:50,
+  opacity:0
+ })
+ .to("#ourskillp", {
+  x:-50,
+  opacity:0
+ },"<")
+.to("#monitor", {
+  keyframes: [
+    { x: -505, y:  5, rotation: -2, duration: 0.1 },
+    { x: -495, y: -5, rotation:  2, duration: 0.1 },
+    { x: -505, y:  5, rotation: -1, duration: 0.1 },
+    { x: -495, y: -5, rotation:  1, duration: 0.1 },
+    { x: -500, y:  0, rotation:  0, duration: 0.1 }
+  ],
+  ease: "power1.inOut"
+})
+.call(() => {
+  blinkArduino.pause();
+})
+  .to("#monitor",{
+    scale:3,
+    duration:3,
+  })
+  .to("#flash",{
+    opacity:0
+  },"<")
+  .to("#isilayar",{
+    opacity:1
+  },"<")
+  .fromTo("#loading",{
+    opacity:1
+  },{
+    opacity:0
+  })

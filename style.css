@@ -27,9 +27,7 @@ p{
     /* transform: scaleY(0.02) scaleX(0.6); */
     transform-origin: center;
   }
-#ourteam{
-  /* opacity:0; */
-}
+
 
 .marquee{
   top: 520px;
@@ -93,4 +91,10 @@ margin-left: -20px;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165,1);
 
 }
+#isilayar {
+  opacity: 0;
+ background-image:url("assets/img/bglayar.jpg") ;
+ 
+}
+
 
