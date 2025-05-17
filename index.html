@@ -208,74 +208,84 @@
 
    
  
-    <section id="skill" class="h-screen w-full bg-[#0D2546]  flex items-center justify-between px-24">
+       <section id="skill" class="h-screen w-full bg-[#0D2546] flex items-center justify-between px-24 relative">
         <div>
-          <h2 id="ourskill" class="text-9xl text-white">our <br> skill</h2>
-          <p id="ourskillp" class="text-justify max-w-xl text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet placeat asperiores, et, molestiae ab beatae quae tempore quo cupiditate maxime enim quos ducimus unde? Quia illum iste aliquam, omnis in est necessitatibus ut fugiat placeat, fuga perspiciatis, ipsa saepe nulla.</p>
+            <h2 id="ourskill" class="text-9xl text-white">our <br> skill</h2>
+            <p id="ourskillp" class="text-justify max-w-xl text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa non eveniet quisquam harum officiis reprehenderit, omnis quod odio totam neque recusandae expedita quia possimus ducimus quas nulla earum libero reiciendis, quos ipsam facere est, architecto voluptatum! Porro vel non beatae harum. Animi nihil nisi accusantium quia soluta doloribus vel ipsam.</p>
         </div>
-      
-      
-          <img id="reactimg"src="assets/img/react-removebg-preview.png"class=" absolute ml-[1100px]  w-40 z-[222]"/>
+
+        <img id="reactimg" src="assets/img/react-removebg-preview.png" class="absolute ml-[1100px] w-40 z-20" alt="React Logo" />
         <img id="laravelimg" src="assets/img/laravel-removebg-preview.png" class="absolute ml-[1100px]  w-[70px] z-[222]" />
-        <img id="phpimg" src="assets/img/php.png" class="absolute ml-[1100px]  w-[200px] z-[222]]" />
+        <img id="phpimg" src="assets/img/php.png" class="absolute ml-[1100px]  w-[100px] z-[222]" />
         <img id="canvaimg" src="assets/img/canva.png" class="absolute ml-[1100px]  w-[60px] z-[222]]" />
         <img id="figmaimg" src="assets/img/figma-removebg-preview.png" class="absolute ml-[1100px]  w-[70px] z-[222]]" />
         <img id="wpimg" src="assets/img/wp.png" class="absolute ml-[1100px]  w-[60px] z-[222]]" />
-     
-        <div class=" -mt-[200px] ">
-            <div id="monitor" class="flex flex-col items-center ml-[500px] mt-[200px]">
-            
-                <div id="layar" class="w-[300px] h-[200px] bg-cover border-8 border-black rounded-2xl shadow-lg flex items-center justify-center overflow-hidden relative">
-               
-                  <div id="flash" class="w-full h-full bg-white rounded-2xl absolute z-20"></div>
-                  <div id="isilayar" class="w-full h-full bg-cover bg-center rounded z-10 relative">
-                    
-                    <div id="loading" class="absolute inset-0 bg-black z-[30] flex items-center justify-center flex-col">
-                        <img src="assets/img/dadlogo..png" class="w-24 mb-2" />
+
+        <div id="monitor" class="flex flex-col items-center ml-[500px] mt-[60px]">
+            <div id="layar" class="w-[300px] h-[200px] bg-cover border-8 border-black rounded-2xl shadow-lg flex items-center justify-center overflow-hidden relative">
+                <div id="flash" class="w-full h-full bg-white rounded-2xl absolute z-20 pointer-events-none"></div>
+                <div id="isilayar" class="w-full h-full bg-cover bg-center rounded z-10 relative overflow-hidden">
+
+                 
+                    <div id="loading" class="absolute inset-0 bg-black z-30 flex items-center justify-center flex-col pointer-events-none">
+                        <img src="assets/img/dadlogo..png" class="w-24 mb-2" alt="DAD Logo" />
                         <div class="w-6 h-6 border-[1.5px] border-white border-t-transparent rounded-full animate-spin"></div>
                         <div class="text-white text-[10px] mt-1">Loading...</div>
-                      </div>
-                  
-                    <div class="w-20 text-[4px] text-white mt-2 mr-12">
-                      <img src="assets/img/react-removebg-preview.png" class="w-[30px]">
-                      <p class="text-center  mr-[50px]">React</p>
                     </div>
-                    <div class="w-[13px] text-[4px] text-white mt-2 ml-2">
-                        <img src="assets/img/laravel-removebg-preview.png" class="w-[30px]">
-                        <p class="text-center  mr-[50px]">Laravel</p>
-                      </div>
-                      <div class="w-[20px] text-[4px] text-white mt-2 ml-[4px]">
-                        <img src="assets/img/php.png" class="w-[30px]">
-                        <p class="text-center">php</p>
-                      </div>
-                      <div class="w-6 text-[4px] text-white mt-2 ml-px">
-                        <img src="assets/img/wp.png" class="w-[30px]">
-                        <p class="text-center">WordPress</p>
-                      </div>
-                      <div class="w-[20px] text-[4px] text-white mt-2 ml-[2px]">
-                        <img src="assets/img/figma-removebg-preview.png" class="w-[30px]">
-                        <p class="text-center">figma</p>
-                      </div>
-                      <div class="w-[6px] text-[4px] text-white mt-2 mr-12">
-                        <img src="assets/img/arduino.png" class="w-[30px]">
-                        <p class="text-center  mr-[50px]">arduino</p>
-                      </div>
-                  </div>
-                  
-                </div>
-              
-            
-                <div class="w-[80px] h-[20px] bg-black mt-2 rounded-md shadow-md"></div>
-              
-            
-                <div class="w-[120px] h-[10px] bg-black mt-1 rounded-full shadow-inner"></div>
-              </div>
-          </div>    
 
-        
-      </section>
-    </div>
+                
+                    <div class="flex flex-wrap p-2 mr-[250px]">
+                        <div class="w-[50px] text-white cursor-pointer flex flex-col items-center">
+                            <img src="assets/img/react-removebg-preview.png"
+                                 class="w-[30px] transition-transform hover:scale-110 active:scale-95"
+                                 onclick="showSection('section-react')" alt="React" />
+                            <p class="text-[3px] text-center">React</p>
+                        </div>
+                    </div>
       
+                    <div id="produk">
+              
+                        <section id="section-react" class="hidden fixed z-40 bg-red-900 w-[290px] h-[187px] top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-lg p-6 overflow-hidden">
+                            <button onclick="closeSection('section-react')" class="absolute top-[1px] right-4 text-gray-200 hover:text-gray-100 text-2xl">&times;</button>
+                          
+                            <div class="flex h-full pr-2 relative">
+                                <!-- Card -->
+                                <div id="card" onclick="togglePanel()" class="card h-[130px] w-[30px] rounded-md border border-black flex flex-col justify-between hover:bg-yellow-400 transition-colors duration-200 relative cursor-pointer">
+                                  <div class="p-1">
+                                    <img src="" class="mx-auto" />
+                                  </div>
+                                  <div class="flex-1 flex flex-col justify-center items-center px-2">
+                                    <div class="vertical-text text-black text-sm text-center" style="writing-mode: vertical-rl; text-orientation: upright;">
+                                      ract
+                                    </div>
+                                  </div>
+                                  <div class="p-1">
+                                    <img src="" class="mx-auto" />
+                                  </div>
+                                </div>
+                              
+                                <div id="panel" class="origin-left scale-x-0 transition-transform duration-300 absolute left-[40px] top-0 z-10 w-[230px] p-2 h-[130px] rounded-md shadow-md">
+                                    <img src="https://imgs.search.brave.com/Tff-63ur5MCZH9FTxML5xFPxlIe2iGo-h3XBI3vrsGI/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tYXJr/ZXRwbGFjZS5jYW52/YS5jb20vRUFFa1Vh/WkhOclkvMS8wLzE2/MDB3L2NhbnZhLXdo/aXRlLXNpbXBsZS1s/aWdodC1ibG9nZ2Vy/LWJpby1saW5rLXdl/YnNpdGUtRUtPMUZD/ZDlqamsuanBn"  class="mb-2 rounded mx-auto" />                     
+                                  </div>
+                                </div>
+                              
+                          
+                        
+                          
+                            </div>
+                          </section>
+                        
+                      
+                    </div> 
+
+                </div> 
+            </div>
+            <div class="w-[80px] h-[20px] bg-black mt-2 rounded-md shadow-md"></div>
+              
+            
+            <div class="w-[120px] h-[10px] bg-black mt-1 rounded-full shadow-inner"></div> 
+        </div> 
+    </section>
     <script src="script.js"></script>
 
 

@@ -32,6 +32,38 @@ window.addEventListener("scroll", function(){
     currentScroll = window.pageYOffset;
 });
 
+let isOpen = false;
+  function togglePanel() {
+    const panel = document.getElementById('panel');
+    isOpen = !isOpen;
+
+    if (isOpen) {
+      panel.classList.remove('scale-x-0');
+      panel.classList.add('scale-x-100');
+    } else {
+      panel.classList.add('scale-x-0');
+      panel.classList.remove('scale-x-100');
+    }
+  }
+
+  function showSection(id) {
+    const allSections = document.querySelectorAll('#produk section');
+    allSections.forEach(section => section.classList.add('hidden'));
+
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.remove('hidden');
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  function closeSection(id) {
+
+    const sec = document.getElementById(id);
+    if (sec) sec.classList.add('hidden');
+  
+  
+    document.getElementById('monitor').scrollIntoView({ behavior: 'smooth' });
+  }
 
 const tl = gsap.timeline({
     scrollTrigger: {
@@ -532,3 +564,5 @@ const tl6 = gsap.timeline({
   },{
     opacity:0
   })
+
+
