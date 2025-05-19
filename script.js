@@ -31,39 +31,76 @@ window.addEventListener("scroll", function(){
 
     currentScroll = window.pageYOffset;
 });
-
 let isOpen = false;
-  function togglePanel() {
-    const panel = document.getElementById('panel');
-    isOpen = !isOpen;
+    function togglePanel() {
+      const panel = document.getElementById('panel');
+      const card2 = document.getElementById('card2');
+      isOpen = !isOpen;
 
-    if (isOpen) {
-      panel.classList.remove('scale-x-0');
-      panel.classList.add('scale-x-100');
-    } else {
-      panel.classList.add('scale-x-0');
-      panel.classList.remove('scale-x-100');
+      if (isOpen) {
+   
+        panel.classList.replace('scale-x-0', 'scale-x-100');
+
+    
+        const rect = card2.getBoundingClientRect();
+        const distance = (window.innerWidth - rect.left) + rect.width;
+        card2.style.transition = 'transform 0.3s ease';
+        card2.style.transform = `translateX(${distance}px)`;
+      } else {
+   
+        panel.classList.replace('scale-x-100', 'scale-x-0');
+
+      
+        card2.style.transform = '';
+      }
     }
-  }
 
-  function showSection(id) {
-    const allSections = document.querySelectorAll('#produk section');
-    allSections.forEach(section => section.classList.add('hidden'));
+    function showSection(id) {
+      const allSections = document.querySelectorAll('#produk section');
+      allSections.forEach(section => section.classList.add('hidden'));
 
-    const target = document.getElementById(id);
-    if (target) {
-      target.classList.remove('hidden');
-      target.scrollIntoView({ behavior: 'smooth' });
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.remove('hidden');
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-  }
-  function closeSection(id) {
 
-    const sec = document.getElementById(id);
-    if (sec) sec.classList.add('hidden');
-  
-  
-    document.getElementById('monitor').scrollIntoView({ behavior: 'smooth' });
-  }
+    function closeSection(id) {
+      const sec = document.getElementById(id);
+      if (sec) sec.classList.add('hidden');
+      document.getElementById('monitor').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    let isOpen2 = false;
+    function togglePanel2() {
+      const panel2  = document.getElementById('panel2');
+      const card1   = document.getElementById('card');
+      const card2   = document.getElementById('card2');
+      const section = document.getElementById('section-react');
+      isOpen2 = !isOpen2;
+    
+      if (isOpen2) {
+        panel2.classList.replace('scale-x-0', 'scale-x-100');
+    
+        // dorong card1 keluar layar kiri
+        const r1    = card1.getBoundingClientRect();
+        const dist1 = r1.left + r1.width;
+        card1.style.transition = 'transform 0.3s ease';
+        card1.style.transform  = `translateX(-${dist1}px)`;
+    
+        // hitung jarak agar card2 menempel di kiri section
+        const secRect = section.getBoundingClientRect();
+        const r2      = card2.getBoundingClientRect();
+        const delta   = r2.left - secRect.left;
+        card2.style.transition = 'transform 0.3s ease';
+        card2.style.transform  = `translateX(-30px)`;
+      } else {
+        panel2.classList.replace('scale-x-100', 'scale-x-0');
+        card1.style.transform = '';
+        card2.style.transform = '';
+      }
+    }
 
 const tl = gsap.timeline({
     scrollTrigger: {
