@@ -1,5 +1,68 @@
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(MotionPathPlugin);
+const footer = document.getElementById('footer');
+
+const images = [
+  'assets/img/arduino.png',
+  'assets/img/canva.png',
+  'assets/img/laravel-removebg-preview.png',
+  'assets/img/react-removebg-preview.png',
+  'assets/img/php.png'
+];
+
+let lastTime = 0;
+
+footer.addEventListener('mousemove', e => {
+  const now = Date.now();
+  if (now - lastTime < 400) return; // batasi 400ms sekali
+  lastTime = now;
+
+  if (!footer.contains(e.target)) return;
+
+  const imgSrc = images[Math.floor(Math.random() * images.length)];
+  const img = document.createElement('img');
+  img.src = imgSrc;
+  img.className = 'absolute w-[100px] h-[100px] pointer-events-none select-none z-20';
+
+  const rect = footer.getBoundingClientRect();
+  const x = e.clientX - rect.left - 50; // adjust tengah gambar
+  const y = e.clientY - rect.top - 50;
+
+  img.style.left = x + 'px';
+  img.style.top = y + 'px';
+
+  footer.appendChild(img);
+
+  gsap.to(img, {
+    duration: 1,
+    y: 150,
+    delay: 1,
+    opacity: 0,
+    scale: 1.2,
+    ease: "power1.out",
+    onComplete: () => img.remove()
+  });
+});
+
+
+
+
+function copyEmail() {
+  const email = document.getElementById("emailText").innerText;
+  const copyBtn = document.getElementById("copyBtn");
+  const container = document.getElementById("emailContainer");
+
+  navigator.clipboard.writeText(email).then(() => {
+    copyBtn.innerText = "Copied";
+    container.classList.add("bg-green-100");
+
+    setTimeout(() => {
+      copyBtn.innerText = "Copy";
+      container.classList.remove("bg-green-100");
+    }, 2000);
+  });
+}
+
 let currentScroll = 0;
 let isScrollingDown = true;
 let arrow = document.querySelectorAll(".arrow");
@@ -123,7 +186,7 @@ const tl = gsap.timeline({
     }, 
     {
       scaleY: 1,
-      scaleX: 1,
+      scaleX: 2,
       ease: "power2.out",
       duration: 3
     }
@@ -248,7 +311,7 @@ const tl5 = gsap.timeline({
         start: "top-=400 top",
         end:"+=1000",
         scrub:2,
-        markers:true,
+        markers:false,
       }
     }
   );
@@ -463,16 +526,26 @@ const tl5 = gsap.timeline({
       
          
 
-const tl6 = gsap.timeline({
-    scrollTrigger:{
-        trigger:"#skill",
-        start: "center center",
-        end:"+=3000",
-        pin:true,
-        scrub:2,
-        markers:true,
-    }
-})
+      const tl6 = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#skill",
+          start: "center center",
+          end: "+=3000",
+          pin: true,
+          scrub: 2,
+          markers: false,
+          onLeave: () => {
+            // Matikan scroll
+            document.body.style.overflow = 'hidden';
+      
+            // Hidupkan scroll lagi setelah 1 detik
+            setTimeout(() => {
+              document.body.style.overflow = '';
+            }, 2000); // 1000ms = 1 detik
+          }
+        }
+      })
+      
 
 .fromTo("#arduinoimg", 
   { opacity: 0 }, 
@@ -603,3 +676,4 @@ const tl6 = gsap.timeline({
   })
 
 
+  
