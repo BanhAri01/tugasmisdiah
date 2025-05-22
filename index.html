@@ -11,6 +11,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+  ></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 
@@ -395,29 +399,29 @@
       </a>
       
   
-    <!-- Email Container di kanan -->
+
     <div
       id="emailContainer"
       class="h-[100px] overflow-hidden border flex items-center w-[600px] rounded-2xl px-4 transition-colors duration-300"
     >
-      <!-- Icon -->
+    
       <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
         <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
         <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
       </svg>
   
-      <!-- Email -->
+    
       <p id="emailText" class="text-2xl ml-6">dadteam@gmail.com</p>
   
-      <!-- Copy Button -->
+
       <div
         onclick="copyEmail()"
-        class="ml-6 flex items-center cursor-pointer group rounded transition-colors ml-[100px] px-[10px] pr-[50px] duration-300 hover:bg-green-100"
+        class="ml-6 flex items-center cursor-pointer group rounded transition-colors ml-[110px] px-[10px] pr-[70px] duration-300 hover:bg-blue-900"
       >
       <div class="w-px -ml-[10px] bg-white h-screen"></div>
         <span
           id="copyBtn"
-          class="text-3xl text-white font-semibold select-none px-[50px] py-[50px]"
+          class="text-4xl text-white font-semibold select-none px-[50px] py-[50px]"
         >
           Copy
         </span>
@@ -426,8 +430,68 @@
   </div>
 
 
+ 
+  <div id="form-container" class="flex justify-center mt-[350px] w-[500px] h-[400px] bg-black p-6 rounded-2xl shadow-lg">
   
+   <div id="step-1" class="space-y-4">
+    <h2 class="text-xl font-bold text-blue-700">Deadline Projek</h2>
+    <p class="text-blue-600">Kapan projek ini harus selesai?</p>
+    <input type="date" id="project-deadline" class="w-full p-2 border text-black border-blue-300 rounded" />
+    <label class="inline-flex items-center space-x-2">
+      <input type="checkbox" id="flexible-deadline" />
+      <span class="text-blue-600">Deadline saya fleksibel</span>
+    </label>
+    <div class="flex justify-between space-x-2">
+      <button type="button" disabled class="mt-2 w-1/2 bg-gray-300 text-white py-2 rounded opacity-50">Back</button>
+      <button type="button" id="to-step-2" class="mt-2 w-1/2 bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Lanjut</button>
+    </div>
+  </div>
+
   
+  <div id="step-2" class="hidden space-y-4">
+    <h2 class="text-xl font-bold text-blue-700">Pilih Jenis Aplikasi</h2>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="type-card p-4 bg-blue-50 rounded-lg cursor-pointer hover:bg-blue-100 border border-blue-200" data-type="Website">
+        <h3 class="font-semibold text-blue-800">Website</h3>
+        <p class="text-sm text-blue-600">Bangun situs statis atau dinamis.</p>
+      </div>
+      <div class="type-card p-4 bg-blue-50 rounded-lg cursor-pointer hover:bg-blue-100 border border-blue-200" data-type="IoT">
+        <h3 class="font-semibold text-blue-800">IoT</h3>
+        <p class="text-sm text-blue-600">Solusi perangkat terhubung.</p>
+      </div>
+      <div class="type-card p-4 bg-blue-50 rounded-lg cursor-pointer hover:bg-blue-100 border border-blue-200" data-type="Mobile App">
+        <h3 class="font-semibold text-blue-800">Mobile App</h3>
+        <p class="text-sm text-blue-600">Aplikasi Android/iOS.</p>
+      </div>
+      <div class="type-card p-4 bg-blue-50 rounded-lg cursor-pointer hover:bg-blue-100 border border-blue-200" data-type="Lainnya">
+        <h3 class="font-semibold text-blue-800">Lainnya</h3>
+        <p class="text-sm text-blue-600">Jenis lainnya.</p>
+      </div>
+    </div>
+    <button type="button" id="back-to-1" class="mt-2 w-full bg-blue-200 text-blue-700 py-2 rounded hover:bg-blue-300">Back</button>
+  </div>
+
+
+  <div id="step-3" class="hidden space-y-4">
+    <h2 class="text-xl font-bold text-blue-700">Detail Projek (<span id="selected-type"></span>)</h2>
+    <textarea id="project-details" rows="4" placeholder="Jelaskan kebutuhan projek Anda..." class="w-full p-2 text-black border border-blue-300 rounded"></textarea>
+    <div class="flex justify-between space-x-2">
+      <button type="button" id="back-to-2" class="w-1/2 bg-blue-200 text-blue-700 py-2 rounded hover:bg-blue-300">Back</button>
+      <button type="button" id="to-step-4" class="w-1/2 bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Lanjut</button>
+    </div>
+  </div>
+
+ 
+  <div id="step-4" class="hidden space-y-4">
+    <h2 class="text-xl font-bold text-blue-700">Data Kontak</h2>
+    <input type="text" id="user-name" placeholder="Nama Anda" class="w-full p-2 border border-blue-300 rounded" />
+    <input type="tel" id="user-wa" placeholder="No. WhatsApp" class="w-full p-2 border border-blue-300 rounded" />
+    <div class="flex justify-between space-x-2">
+      <button type="button" id="back-to-3" class="w-1/2 bg-blue-200 text-blue-700 py-2 rounded hover:bg-blue-300">Back</button>
+      <button type="button" id="send-final" class="w-1/2 bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Pesan Sekarang</button>
+    </div>
+  </div>
+
 
           
       </footer>
